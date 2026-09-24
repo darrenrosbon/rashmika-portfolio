@@ -145,6 +145,7 @@ section.body{padding:76px 0;}
 .sechead{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;gap:20px;flex-wrap:wrap;}
 .sechead h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.9rem;margin:0;}
 .sechead .mono{color:var(--stone);font-size:0.78rem;}
+.sec-right{display:flex;align-items:center;gap:18px;}
 .sechead p{margin:0;color:var(--stone);font-size:0.95rem;max-width:46ch;}
 
 /* about */
