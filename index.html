@@ -67,7 +67,7 @@
         <p class="lede">Driven, end-to-end FMCG professional at AB InBev/SAB, turning raw operational data into sustainable reporting and governance systems. A chemistry analytical mindset, paired with strong commercial and financial acumen.</p>
         <div class="ctarow">
           <a class="btn btn-fill" href="#work">View the work</a>
-          <a class="btn btn-line" href="assets/certs/rashmika-moodley-cv.pdf" target="_blank" rel="noopener">Download CV</a>
+          <button type="button" class="btn btn-line" id="viewCvBtn" aria-haspopup="dialog" aria-controls="cvModal">View CV</button>
         </div>
       </div>
     </div>
@@ -480,6 +480,23 @@
     <polyline points="5 12 12 5 19 12"/>
   </svg>
 </button>
+
+<div class="cvmodal" id="cvModal" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle" aria-hidden="true">
+  <div class="cvbar">
+    <div class="cvbar-inner">
+      <span class="cvtitle mono" id="cvModalTitle">Rashmika Moodley — CV</span>
+      <div class="cvactions">
+        <a class="btn btn-fill" href="assets/certs/rashmika-moodley-cv.pdf" download="Rashmika Moodley - CV.pdf">Download CV</a>
+        <button type="button" class="btn btn-line" id="cvClose">Close</button>
+      </div>
+    </div>
+  </div>
+  <div class="cvscroll" id="cvScroll" tabindex="-1">
+    <div class="cvstage" id="cvStage">
+      <iframe id="cvFrame" title="Rashmika Moodley — CV" data-src="cv/cv.html" scrolling="no"></iframe>
+    </div>
+  </div>
+</div>
 
 <script src="js/script.js"></script>
 </body>

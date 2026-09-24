@@ -142,3 +142,61 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+
+// CV viewer overlay: opens over the page, no navigation
+(function () {
+  var modal = document.getElementById('cvModal');
+  var openBtn = document.getElementById('viewCvBtn');
+  var closeBtn = document.getElementById('cvClose');
+  var frame = document.getElementById('cvFrame');
+  var stage = document.getElementById('cvStage');
+  var scroller = document.getElementById('cvScroll');
+  if (!modal || !openBtn || !frame || !stage || !scroller) return;
+  var DOC_W = 794;
+  var lastFocus = null;
+
+  function fit() {
+    var avail = scroller.clientWidth - parseFloat(getComputedStyle(scroller).paddingLeft) * 2;
+    var scale = Math.min(1, avail / DOC_W);
+    var h = 0;
+    try { h = frame.contentDocument.documentElement.scrollHeight; } catch (e) { h = 0; }
+    if (!h) return;
+    frame.style.height = h + 'px';
+    frame.style.transform = 'scale(' + scale + ')';
+    stage.style.width = DOC_W * scale + 'px';
+    stage.style.height = h * scale + 'px';
+  }
+
+  frame.addEventListener('load', function () {
+    fit();
+    try {
+      if (frame.contentDocument.fonts && frame.contentDocument.fonts.ready) {
+        frame.contentDocument.fonts.ready.then(fit);
+      }
+    } catch (e) { /* no-op */ }
+  });
+  window.addEventListener('resize', function () { if (modal.classList.contains('open')) fit(); });
+
+  function openCv() {
+    lastFocus = document.activeElement;
+    if (!frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-src'));
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('cv-open');
+    scroller.scrollTop = 0;
+    closeBtn.focus();
+    fit();
+  }
+  function closeCv() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('cv-open');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  openBtn.addEventListener('click', openCv);
+  closeBtn.addEventListener('click', closeCv);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeCv();
+  });
+})();

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rashmika Moodley — CV</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#141311;
+    --bone:#F5EEE0;
+    --bone-dim:#EFE6D2;
+    --stone:#8B8478;
+    --tang:#EE9254;
+    --tang-deep:#C96B2E;
+    --hair:#E7DFCC;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    background:#DAD3C2;
+    color:var(--void);
+    font-family:'Archivo',ui-sans-serif,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .grotesk{font-family:'Bricolage Grotesque',ui-sans-serif,sans-serif;}
+  .mono{font-family:'Space Mono',ui-monospace,monospace;}
+
+  @page{ size:A4; margin:0; }
+
+  .page{
+    width:210mm;
+    min-height:297mm;
+    margin:14px auto;
+    background:var(--bone);
+    padding:12mm 15mm 10mm;
+    position:relative;
+    box-shadow:0 6px 24px rgba(0,0,0,0.18);
+    page-break-after:always;
+  }
+  .page:last-child{ page-break-after:auto; }
+  .cols{ break-inside:auto; }
+
+  @media print{
+    body{background:var(--bone);}
+    .page{ margin:0; box-shadow:none; }
+  }
+
+  /* ---------- running header (pages 2 & 3) ---------- */
+  .runhead{
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-bottom:1.5px solid var(--void);
+    padding-bottom:8px; margin-bottom:20px;
+  }
+  .runhead .rname{font-size:1rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;}
+  .runhead .rkicker{font-size:0.66rem; color:var(--tang-deep); letter-spacing:0.08em; text-transform:uppercase;}
+
+  /* ---------- page 1 hero ---------- */
+  .hero{ display:flex; align-items:center; gap:26px; margin-bottom:8px; }
+  .avatarRing{
+    flex-shrink:0; width:140px; height:140px; border-radius:50%;
+    border:4px solid var(--tang); padding:4px; box-shadow:0 0 0 1px rgba(238,146,84,0.25);
+    overflow:hidden;
+  }
+  .avatarRing img{
+    width:100%; height:100%; border-radius:50%; object-fit:cover; display:block;
+    object-position:50% 0%; transform:scale(1.4); transform-origin:57% 39%;
+  }
+  .kicker{
+    font-family:'Space Mono',monospace; font-size:0.7rem; color:var(--tang-deep);
+    letter-spacing:0.12em; text-transform:uppercase; margin-bottom:6px;
+  }
+  h1.name{
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
+    font-size:2.5rem; line-height:1; margin:0; letter-spacing:-0.01em;
+  }
+  .contactRow{
+    display:flex; flex-wrap:wrap; gap:4px 18px; margin-top:14px; padding-top:10px;
+    border-top:1px solid var(--hair);
+    font-family:'Space Mono',monospace; font-size:0.72rem; color:var(--void);
+  }
+  .contactRow span{ opacity:0.55; margin-right:5px; color:var(--tang-deep); }
+
+  .summary{
+    font-size:0.86rem; line-height:1.5; color:var(--void); margin:10px 0 14px;
+    padding:11px 16px; background:var(--bone-dim); border-left:3px solid var(--tang); border-radius:2px;
+  }
+
+  /* ---------- section label ---------- */
+  .figlabel{
+    font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--tang-deep); margin-bottom:10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .figlabel::after{ content:""; flex:1; height:1px; background:var(--hair); }
+  h2.sectiontitle{
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:1.05rem;
+    margin:0 0 14px;
+  }
+
+  /* ---------- two-column layout ---------- */
+  .cols{ display:grid; grid-template-columns:210px 1fr; gap:0 28px; }
+  .sidecol > section{ margin-bottom:24px; }
+  .maincol > section{ margin-bottom:20px; }
+
+  /* ---------- skills ---------- */
+  .skillgroup{ margin-bottom:14px; }
+  .skillgroup h3{
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:0.78rem;
+    text-transform:uppercase; letter-spacing:0.04em; margin:0 0 8px; color:var(--void);
+  }
+  .skillgroup ul{ margin:0; padding:0 0 0 0; list-style:none; }
+  .skillgroup li{
+    font-size:0.78rem; line-height:1.4; padding:5px 0 5px 14px; position:relative;
+    border-bottom:1px solid var(--hair);
+  }
+  .skillgroup li::before{
+    content:""; position:absolute; left:0; top:11px; width:5px; height:5px;
+    border-radius:50%; background:var(--tang);
+  }
+  .toolpills{ display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .pill{
+    font-family:'Space Mono',monospace; font-size:0.66rem; padding:4px 9px;
+    background:var(--white); border:1px solid var(--hair); border-radius:20px;
+  }
+
+  /* ---------- experience ---------- */
+  .job{ padding-left:16px; border-left:2px solid var(--hair); position:relative; }
+  .job::before{
+    content:""; position:absolute; left:-5px; top:3px; width:8px; height:8px;
+    border-radius:50%; background:var(--tang); border:2px solid var(--bone);
+  }
+  .job + .job{ margin-top:14px; }
+  .jobhead{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .jobtitle{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:0.92rem; }
+  .jobdate{ font-family:'Space Mono',monospace; font-size:0.66rem; color:var(--tang-deep); white-space:nowrap; }
+  .jobmeta{ font-size:0.72rem; color:var(--stone); margin:1px 0 5px; }
+  .job ul{ margin:0; padding:0; list-style:none; }
+  .job li{ font-size:0.75rem; line-height:1.38; padding:2px 0 2px 13px; position:relative; }
+  .job li::before{ content:"—"; position:absolute; left:0; top:3px; color:var(--tang); font-size:0.7rem; }
+
+  /* ---------- education cards ---------- */
+  .edu{ margin-bottom:16px; }
+  .edu .deg{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:0.82rem; }
+  .edu .sch{ font-size:0.74rem; color:var(--stone); }
+  .edu .yr{ font-family:'Space Mono',monospace; font-size:0.66rem; color:var(--tang-deep); margin:2px 0 6px; }
+  .edu ul{ margin:0; padding:0; list-style:none; }
+  .edu li{ font-size:0.72rem; line-height:1.42; padding:3px 0 3px 12px; position:relative; color:var(--void); }
+  .edu li::before{ content:""; position:absolute; left:0; top:8px; width:4px; height:4px; border-radius:50%; background:var(--tang); }
+
+  /* ---------- references ---------- */
+  .refcard{
+    padding:9px 0; border-bottom:1px solid var(--hair);
+  }
+  .refcard .rn{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:0.8rem; }
+  .refcard .rr{ font-size:0.7rem; color:var(--stone); }
+  .refcard .rc{ font-family:'Space Mono',monospace; font-size:0.65rem; margin-top:3px; color:var(--void); opacity:0.75; }
+
+  /* ---------- languages ---------- */
+  .langrow{ display:grid; grid-template-columns:70px 1fr; align-items:center; gap:10px; margin-bottom:9px; }
+  .langrow .ln{ font-size:0.74rem; font-weight:600; }
+  .langtrack{ height:6px; background:var(--bone-dim); border-radius:4px; overflow:hidden; }
+  .langfill{ height:100%; background:linear-gradient(90deg,var(--tang-deep),var(--tang)); border-radius:4px; }
+
+  /* ---------- achievement checklist (career achievements style) ---------- */
+  .achlist{ border:1px solid var(--hair); border-radius:6px; overflow:hidden; background:var(--white); }
+  .achrow{ display:flex; gap:10px; padding:9px 12px; border-bottom:1px solid var(--hair); align-items:flex-start; }
+  .achrow:last-child{ border-bottom:none; }
+  .achcheck{
+    flex-shrink:0; width:16px; height:16px; border-radius:50%; background:var(--tang);
+    color:var(--void); font-size:0.62rem; font-weight:800; display:flex; align-items:center; justify-content:center;
+    margin-top:1px;
+  }
+  .achrow p{ margin:0; font-size:0.76rem; line-height:1.4; }
+
+  /* ---------- courses two-col pill list ---------- */
+  .courselist{ columns:2; column-gap:18px; }
+  .courseitem{
+    break-inside:avoid; font-size:0.72rem; line-height:1.4; padding:5px 0 5px 12px;
+    position:relative; border-bottom:1px dotted var(--hair); margin-bottom:2px;
+  }
+  .courseitem::before{ content:""; position:absolute; left:0; top:9px; width:4px; height:4px; border-radius:50%; background:var(--tang); }
+  .courseitem .src{ color:var(--stone); font-size:0.68rem; }
+
+  .pubnote{ font-size:0.72rem; line-height:1.5; margin-top:10px; padding-top:10px; border-top:1px solid var(--hair); }
+  .pubnote a{ color:var(--tang-deep); }
+
+  .pageno{
+    position:absolute; bottom:9mm; right:15mm; font-family:'Space Mono',monospace;
+    font-size:0.65rem; color:var(--stone); letter-spacing:0.05em;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE 1 ===================== -->
+<section class="page">
+  <div class="hero">
+    <div class="avatarRing"><img src="photo.jpg?v=2" alt="Rashmika Moodley"></div>
+    <div>
+      <div class="kicker">BSc Hons Chemistry</div>
+      <h1 class="name grotesk">Rashmika Moodley</h1>
+    </div>
+  </div>
+
+  <div class="contactRow">
+    <div><span>Tel</span>+27 76 750 2839</div>
+    <div><span>Mail</span>rashmika.moodley@gmail.com</div>
+    <div><span>In</span>linkedin.com/in/rashmikamoodley19</div>
+    <div><span>Loc</span>Gauteng, South Africa — open to relocation</div>
+  </div>
+
+  <p class="summary">Driven individual with end-to-end experience in FMCG manufacturing operations at AB InBev/SAB. Strong cross-functional collaborator with a track record of translating raw operational data into sustainable reporting and governance systems. Combines a chemistry analytical mindset with strong commercial and financial acumen and data analytics experience. Resilient by nature with a futuristic mindset capable of delivering sustainable results.</p>
+
+  <div class="cols">
+    <div class="sidecol">
+      <section>
+        <div class="figlabel">Skills</div>
+        <div class="skillgroup">
+          <h3>Strategy</h3>
+          <ul>
+            <li>Agile Methodology &amp; Lean Six Sigma implementation</li>
+            <li>Data Building &amp; Visualization</li>
+            <li>Critical Thinking &amp; Problem Solving</li>
+            <li>Financial Systems &amp; Revenue Management</li>
+            <li>Insights Reporting &amp; Masterdata Governance</li>
+            <li>Stakeholder &amp; Partner Management</li>
+          </ul>
+        </div>
+        <div class="skillgroup">
+          <h3>Operations</h3>
+          <ul>
+            <li>Food Safety Audit Leadership &amp; Regulatory Compliance</li>
+            <li>FMCG (Quality, Brewing, Packaging &amp; Logistics) Processes</li>
+            <li>Quality Systems — ISO 22000, BRC, HACCP &amp; GFSI</li>
+          </ul>
+        </div>
+        <div class="skillgroup">
+          <h3>Tools</h3>
+          <div class="toolpills">
+            <span class="pill">Excel</span>
+            <span class="pill">Power BI</span>
+            <span class="pill">Power Automate</span>
+            <span class="pill">Visio</span>
+            <span class="pill">Azure</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="maincol">
+      <section>
+        <div class="figlabel">Work Experience</div>
+
+        <div class="job">
+          <div class="jobhead">
+            <span class="jobtitle grotesk">Tech Sales Analyst — Digital Marketplace</span>
+            <span class="jobdate">Mar 2025 — Current</span>
+          </div>
+          <div class="jobmeta">Sandton COF · Anheuser-Busch InBev (SAB/ABInBev)</div>
+          <ul>
+            <li>Tracks and reports Global BEES Marketplace KPIs.</li>
+            <li>Owns revenue management and partner-portfolio performance reporting.</li>
+            <li>Implemented automated reporting systems, cutting manual tasks by ~2 hrs/day and payment lead time by 31% in 2025.</li>
+            <li>Responsible for a 62% reduction in Red Bull customer queries through system implementation.</li>
+            <li>Executed timely financial routines and accurate monthly phasing, resulting in an additional ~4.1M in revenue generation.</li>
+            <li>Presents data insights to senior leadership to inform strategic business decisions.</li>
+            <li>Owns Financial, Sales Insights and Partner Portfolio management, providing facilitative support across all 4 divisions of AB InBev Marketplace ZA.</li>
+            <li>Executive Assistant to the ZA Marketplace Director.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="jobhead">
+            <span class="jobtitle grotesk">Microbiologist &amp; Food Safety Specialist — Chamdor Brewery</span>
+            <span class="jobdate">Jan 2024 — Mar 2025</span>
+          </div>
+          <div class="jobmeta">Anheuser-Busch InBev (SAB/ABInBev)</div>
+          <ul>
+            <li>Managed daily operations for the Micro lab and Micro Analytical team, including all stakeholder and external partner relationships.</li>
+            <li>Built and maintained Micro KPI and Food Safety dashboards for daily and monthly tracking and reporting.</li>
+            <li>Owned all Food Safety activities, documentation and adherence to regulatory compliance and audit procedures for the brewery.</li>
+            <li>Transformed raw brewery data into sustainable reporting systems, optimizing manual processes by 2.5 hrs.</li>
+            <li>Managed and updated all food safety documentation in alignment with food safety regulations.</li>
+            <li>Led the brewery's Food Safety audit to its highest AA-grade pass, securing the brewery's first BRC/GFSI certification.</li>
+            <li>Simultaneously managed chemical, cleaning and pest control suppliers, including onsite teams, internally and externally.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="pageno">01 / 03</div>
+</section>
+
+<!-- ===================== PAGE 2 ===================== -->
+<section class="page">
+  <div class="runhead">
+    <span class="rname grotesk">Rashmika Moodley</span>
+    <span class="rkicker mono">BSc Hons Chemistry — Curriculum Vitae</span>
+  </div>
+
+  <div class="cols">
+    <div class="sidecol">
+      <section>
+        <div class="figlabel">Education</div>
+
+        <div class="edu">
+          <div class="deg grotesk">BSc Honours, Chemistry</div>
+          <div class="sch">University of KwaZulu-Natal</div>
+          <div class="yr">2019</div>
+          <ul>
+            <li>Recipient of NRF bursary and CAPRISA fellowship program.</li>
+            <li>Six months of lab work resulting in publications on anti-TB &amp; anti-malarial drug synthesis.</li>
+            <li>Industrial, engineering, organic &amp; agricultural chemistry with critical problem-solving modules.</li>
+            <li>Laboratory demonstrator and module tutor.</li>
+          </ul>
+        </div>
+
+        <div class="edu">
+          <div class="deg grotesk">BSc Applied Chemistry</div>
+          <div class="sch">University of KwaZulu-Natal</div>
+          <div class="yr">2015 — 2018</div>
+          <ul>
+            <li>Applied chemistry; industrial processes; material science; engineering processes; organic, physical, analytical &amp; inorganic chemistry.</li>
+            <li>Professional writing and thesis review.</li>
+          </ul>
+        </div>
+
+        <div class="edu">
+          <div class="deg grotesk">Matric Certificate</div>
+          <div class="sch">Queensburgh Girls High School</div>
+          <div class="yr">2010 — 2014</div>
+          <ul>
+            <li>Bachelor's pass with 81% aggregate.</li>
+            <li>Physics, Mathematics, Biology, English HL, Afrikaans FAL, Consumer Studies.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div class="maincol">
+      <section>
+        <div class="figlabel">Work Experience (cont.)</div>
+
+        <div class="job">
+          <div class="jobhead">
+            <span class="jobtitle grotesk">Quality Technical Trainee — Chamdor Brewery</span>
+            <span class="jobdate">Aug 2022 — Feb 2024</span>
+          </div>
+          <div class="jobmeta">Anheuser-Busch InBev (SAB/ABInBev)</div>
+          <ul>
+            <li>Created reporting tools that lifted department output by 12%.</li>
+            <li>Instrumental in achieving the brewery's Quality Culture Award through critical analytics.</li>
+            <li>Implemented KPI/PI analytical strategies that improved KPI performance by 20%.</li>
+            <li>Rotated through Microbiologist &amp; Food Safety, Packaging, Brewing and Trade Quality Specialist roles.</li>
+            <li>Gained experience with Salesforce, TraceGains, Grafana &amp; Pegasus.</li>
+            <li>Continued learning and project-based work across end-to-end FMCG processes, with implementation of rigorous governance systems to drive results.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="jobhead">
+            <span class="jobtitle grotesk">Data and Reporting Analyst — NoCC Solutions HQ</span>
+            <span class="jobdate">Aug 2021 — Aug 2022</span>
+          </div>
+          <div class="jobmeta">Anheuser-Busch InBev (SAB/ABInBev)</div>
+          <ul>
+            <li>Implemented Agile methodologies, project management and Scrum Master duties for 3 global teams.</li>
+            <li>Developed &amp; managed Power BI dashboards for dynamic data reporting.</li>
+            <li>Reduced manual data collection and reporting by 2 hrs using Power BI insights and masterdata management.</li>
+            <li>Worked with business partners to understand needs and implement automated solutions, improving department performance by 1.7%.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="jobhead">
+            <span class="jobtitle grotesk">Finance Analyst — NoCC Solutions HQ</span>
+            <span class="jobdate">Jan 2021 — Aug 2021</span>
+          </div>
+          <div class="jobmeta">Anheuser-Busch InBev (SAB/ABInBev)</div>
+          <ul>
+            <li>Reshaped and automated manual finance processes to minimize time and resources.</li>
+            <li>Assisted with month-end processing, daily capturing and general ledgers.</li>
+            <li>Gained hands-on exposure to SAP processes; identified opportunities for process streamlining and eliminating wasteful activities.</li>
+            <li>Reduced the Cost of Sales process from 4 hrs to 30 minutes.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="pageno">02 / 03</div>
+</section>
+
+<!-- ===================== PAGE 3 ===================== -->
+<section class="page">
+  <div class="runhead">
+    <span class="rname grotesk">Rashmika Moodley</span>
+    <span class="rkicker mono">BSc Hons Chemistry — Curriculum Vitae</span>
+  </div>
+
+  <div class="cols">
+    <div class="sidecol">
+      <section>
+        <div class="figlabel">References</div>
+        <div class="refcard">
+          <div class="rn grotesk">Michele Stampanoni</div>
+          <div class="rr">FinTech Specialist</div>
+          <div class="rc">066 477 8546 · Michele.stampanoni@za.ab-inbev.com</div>
+        </div>
+        <div class="refcard">
+          <div class="rn grotesk">Obakeng Ntshudisane</div>
+          <div class="rr">Quality Manager</div>
+          <div class="rc">067 281 3468 · obakenglove@gmail.com</div>
+        </div>
+        <div class="refcard">
+          <div class="rn grotesk">Heidi Krause</div>
+          <div class="rr">Data &amp; Analytics Manager</div>
+          <div class="rc">076 621 6714 · Heidi.Krause@za.ab-inbev.com</div>
+        </div>
+        <div class="refcard">
+          <div class="rn grotesk">Prof Kogelium Naidoo</div>
+          <div class="rr">Supervisor</div>
+          <div class="rc">083 269 17566 · kogie.naidoo@.caprisa.org</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="figlabel">Languages</div>
+        <div class="langrow"><span class="ln">English</span><div class="langtrack"><div class="langfill" style="width:100%"></div></div></div>
+        <div class="langrow"><span class="ln">Afrikaans</span><div class="langtrack"><div class="langfill" style="width:88%"></div></div></div>
+        <div class="langrow"><span class="ln">Hindi</span><div class="langtrack"><div class="langfill" style="width:55%"></div></div></div>
+        <div class="langrow"><span class="ln">isiZulu</span><div class="langtrack"><div class="langfill" style="width:45%"></div></div></div>
+        <div class="langrow"><span class="ln">French</span><div class="langtrack"><div class="langfill" style="width:30%"></div></div></div>
+      </section>
+    </div>
+
+    <div class="maincol">
+      <section>
+        <div class="figlabel">Growth &amp; Courses</div>
+        <div class="courselist">
+          <div class="courseitem">Sales Academy Training <span class="src">— AB InBev</span></div>
+          <div class="courseitem">IBM Developer Skills <span class="src">— IBM</span></div>
+          <div class="courseitem">British Retail Consortium Food Safety v9 <span class="src">— Annelie Coetzee Consulting</span></div>
+          <div class="courseitem">Internal Auditing <span class="src">— Annelie Coetzee Consulting</span></div>
+          <div class="courseitem">Advanced Microbiology <span class="src">— AB InBev</span></div>
+          <div class="courseitem">HACCP Training <span class="src">— Annelie Coetzee Consultants</span></div>
+          <div class="courseitem">ISO 22000:2018 Food Safety Training <span class="src">— Annelie Coetzee Consultants</span></div>
+          <div class="courseitem">Core Brewing Skills 1 <span class="src">— Global Beverage Solutions</span></div>
+          <div class="courseitem">Core Brewing Skills 2 <span class="src">— Global Beverage Solutions</span></div>
+          <div class="courseitem">Advanced Maltings <span class="src">— AB InBev</span></div>
+          <div class="courseitem">Agile Training <span class="src">— AB InBev</span></div>
+          <div class="courseitem">White Belt Certificate <span class="src">— AB InBev</span></div>
+          <div class="courseitem">Power BI Essentials <span class="src">— LinkedIn Learning</span></div>
+          <div class="courseitem">Power BI Dashboards for Beginners <span class="src">— LinkedIn Learning</span></div>
+          <div class="courseitem">MTA Database Fundamentals <span class="src">— LinkedIn Learning</span></div>
+          <div class="courseitem">Microsoft Cloud Fundamentals <span class="src">— LinkedIn Learning</span></div>
+          <div class="courseitem">Data Science &amp; Analytics Highlights <span class="src">— LinkedIn Learning</span></div>
+          <div class="courseitem">Data Science Foundations: Data Engineering <span class="src">— LinkedIn Learning</span></div>
+          <div class="courseitem">Business Analytics Fundamentals <span class="src">— LinkedIn Learning</span></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="figlabel">Additional Achievements</div>
+        <div class="achlist">
+          <div class="achrow"><span class="achcheck">✓</span><p>Graduated from the Reporting &amp; Analytics Guild Program at AB InBev.</p></div>
+          <div class="achrow"><span class="achcheck">✓</span><p>Developed analytical insights that won the brewery's first Quality Culture Award in 2022.</p></div>
+          <div class="achrow"><span class="achcheck">✓</span><p>Created an automated dashboard for daily production insights across all South African Breweries, aiding 2023 targets.</p></div>
+          <div class="achrow"><span class="achcheck">✓</span><p>Certified First Aider &amp; Fire Marshall — 2022.</p></div>
+          <div class="achrow"><span class="achcheck">✓</span><p>Panelist at the Tamil Business Worriers conference of Women in Tech and AI.</p></div>
+          <div class="achrow"><span class="achcheck">✓</span><p>Oversaw and approved student research for the Eskom Expo for Young Scientists; the student won second place locally.</p></div>
+        </div>
+        <div class="pubnote">
+          <strong>Two scientific articles published in peer-reviewed journals:</strong><br>
+          “New Quinoline–Urea–Benzothiazole Hybrids as Promising Antitubercular Agents: Synthesis, In Vitro Antitubercular Activity, Cytotoxicity Studies, and In Silico ADME Profiling” — <a href="https://www.mdpi.com/1424-8247/15/5/576">mdpi.com/1424-8247/15/5/576</a>, Pharmaceutics, 2022<br>
+          “In vitro antiplasmodium and antitrypanosomal activities, β-haematin formation inhibition, molecular docking and DFT computational studies of quinoline-urea-benzothiazole hybrids” — <a href="https://doi.org/10.1016/j.heliyon.2024.e38434">doi.org/10.1016/j.heliyon.2024.e38434</a>, Heliyon, 2024
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="pageno">03 / 03</div>
+</section>
+
+</body>
+</html>

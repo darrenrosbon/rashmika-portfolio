@@ -331,3 +331,26 @@ footer .mono{color:var(--stone);font-size:0.78rem;}
   .avatarRing .avatarFallback{font-size:1.3rem;}
   .nameRow{gap:16px;}
 }
+
+/* ---------- CV viewer overlay ---------- */
+body.cv-open{overflow:hidden;}
+.cvmodal{position:fixed;inset:0;z-index:100;background:#DAD3C2;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .2s ease,visibility 0s linear .2s;}
+.cvmodal.open{opacity:1;visibility:visible;transition:opacity .2s ease;}
+.cvbar{background:var(--void);color:var(--bone);flex-shrink:0;}
+.cvbar-inner{max-width:var(--max);margin:0 auto;padding:12px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.cvtitle{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--tang);}
+.cvactions{display:flex;gap:10px;}
+.cvactions .btn{padding:10px 18px;}
+.cvscroll{flex:1;overflow-y:auto;overflow-x:hidden;padding:24px 16px 48px;outline:none;}
+.cvstage{margin:0 auto;position:relative;}
+.cvstage iframe{border:0;width:794px;display:block;transform-origin:top left;background:transparent;}
+@media (max-width:900px){
+  .cvbar-inner{padding:10px 16px;}
+  .cvtitle{display:none;}
+  .cvactions{width:100%;justify-content:space-between;}
+  .cvactions .btn{flex:1;justify-content:center;}
+  .cvscroll{padding:12px 8px 32px;}
+}
+@media (prefers-reduced-motion: reduce){
+  .cvmodal,.cvmodal.open{transition:none;}
+}
