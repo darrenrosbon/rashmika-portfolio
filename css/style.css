@@ -76,7 +76,7 @@ a{color:inherit;}
    edges grow in step with the site's centered content column past --max, so
    the hero's left/right content edges stay in line with every .wrap below it. */
 .panel-void{background:var(--void);color:var(--bone);padding-top:88px;padding-right:48px;padding-bottom:40px;padding-left:max(48px, calc((100vw - 1180px) / 2 + 40px));display:flex;flex-direction:column;justify-content:space-between;}
-.panel-bone{padding-top:40px;padding-right:max(40px, calc((100vw - 1180px) / 2 + 40px));padding-bottom:32px;padding-left:40px;display:flex;flex-direction:column;justify-content:center;}
+.panel-bone{padding-top:104px;padding-right:max(40px, calc((100vw - 1180px) / 2 + 40px));padding-bottom:32px;padding-left:40px;display:flex;flex-direction:column;justify-content:center;}
 
 .mark{position:relative;width:34px;height:34px;border-radius:50%;background:var(--tang);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--void);font-size:0.95rem;font-family:'Bricolage Grotesque',sans-serif;flex-shrink:0;}
 .mark span:first-child{position:relative;z-index:1;}
