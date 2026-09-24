@@ -180,6 +180,7 @@ if (document.readyState === 'loading') {
   function openCv() {
     lastFocus = document.activeElement;
     if (!frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-src'));
+    modal.removeAttribute('inert');
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('cv-open');
@@ -190,6 +191,7 @@ if (document.readyState === 'loading') {
   function closeCv() {
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
+    modal.setAttribute('inert', '');
     document.body.classList.remove('cv-open');
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
@@ -197,6 +199,13 @@ if (document.readyState === 'loading') {
   openBtn.addEventListener('click', openCv);
   closeBtn.addEventListener('click', closeCv);
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && modal.classList.contains('open')) closeCv();
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape') { closeCv(); return; }
+    if (e.key === 'Tab') {
+      var f = modal.querySelectorAll('a[href], button');
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 })();
