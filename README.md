@@ -56,23 +56,27 @@ copy/edit one of the `<a class="certcard">` blocks — then use one of the files
 in `certs/` as a starting point for the new page, and add a matching card to
 `certs/all.html` too.
 
-## The CV download
+## The CV (View CV + Download CV)
 
-The "Download CV" button on the homepage links to `assets/certs/rashmika-moodley-cv.pdf`.
-That file is intentionally trimmed to just the 3 real CV pages — her degree
-certificate, National Senior Certificate, and publication screenshots were
-removed from it (those live as their own pages elsewhere on the site, and the
-National Senior Certificate shows a South African ID number that should never
-be public). If you replace this PDF with a fresh export of her CV, make sure
-any ID-bearing pages are stripped out first.
+The **View CV** button on the homepage opens her CV in an overlay on the same page
+(no new tab). The overlay shows `cv/cv.html` (a 3-page, print-ready HTML CV, with
+its photo in `cv/photo.jpg`) and has a **Download CV** button that saves
+`assets/certs/rashmika-moodley-cv.pdf`.
+
+To update the CV: edit `cv/cv.html`, then re-export the PDF so the two stay in sync —
+open `cv/cv.html` in Chrome or Edge, press Ctrl+P, choose "Save as PDF", set Margins to
+"None", tick "Background graphics", and save over `assets/certs/rashmika-moodley-cv.pdf`.
+It must stay exactly 3 pages. Her degree certificates, National Senior Certificate
+and publication screenshots must never be added to that PDF (the National Senior
+Certificate shows a South African ID number that should never be public).
 
 ## ⚠️ Before you upload anything publicly
 
 - Her **ID number** must never appear on the public site. It's visible on her
   National Senior Certificate — don't add that document as a downloadable file.
 - The site currently shows her **email, phone number and LinkedIn** publicly
-  in the Contact section (this was a deliberate choice — no personal reference
-  contact details are included). Double-check she's comfortable with the phone
+  in the Contact section (deliberate). **Note:** the CV in `cv/cv.html` and the PDF also list four references with
+  their phone numbers and emails — remove or ask each person before publishing. Double-check she's comfortable with the phone
   number being public before this goes live; it's easy to remove one contact
   row in `index.html` if not (search for `id="contact"`).
 
